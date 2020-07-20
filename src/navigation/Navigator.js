@@ -6,15 +6,34 @@ import InicioScreen from '../screens/InicioScreen';
 import DetallesClienteScreen from '../screens//DetallesClienteScreen';
 import NuevoClienteScreen from '../screens//NuevoClienteScreen';
 
-import {} from 'react-native-paper';
+import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 
 const Stack = createStackNavigator();
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#1774f2',
+    accent: '#0655bf',
+  },
+};
 
 const Navigator = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Inicio">
+        <Stack.Navigator
+          initialRouteName="Inicio"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: theme.colors.primary,
+            },
+            headerTintColor: theme.colors.surface,
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}>
           <Stack.Screen
             name="Inicio"
             component={InicioScreen}
