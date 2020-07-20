@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import InicioScreen from '../screens/InicioScreen';
 import DetallesClienteScreen from '../screens//DetallesClienteScreen';
 import NuevoClienteScreen from '../screens//NuevoClienteScreen';
+import BarraSuperior from '../components/ui/Barra';
 
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 
@@ -37,7 +38,16 @@ const Navigator = () => {
           <Stack.Screen
             name="Inicio"
             component={InicioScreen}
-            options={{title: 'Home'}}
+            options={({navigation, route}) => ({
+              headerTitleAlign: 'center',
+              headerLeft: (props) => (
+                <BarraSuperior
+                  {...props}
+                  navigation={navigation}
+                  route={route}
+                />
+              ),
+            })}
           />
           <Stack.Screen
             name="DetallesCliente"
