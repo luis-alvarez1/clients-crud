@@ -34,12 +34,12 @@ const Navigator = () => {
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            headerTitleAlign: 'center',
           }}>
           <Stack.Screen
             name="Inicio"
             component={InicioScreen}
             options={({navigation, route}) => ({
-              headerTitleAlign: 'center',
               headerLeft: (props) => (
                 <BarraSuperior
                   {...props}
